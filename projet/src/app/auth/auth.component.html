@@ -1,0 +1,57 @@
+<div class="wrapper">
+    <div class="title-text">
+        <div class="title login" #loginText>
+            Login Form</div>
+        <div class="title signup">
+            Signup Form</div>
+    </div>
+    <div class="form-container">
+        <div class="slide-controls">
+            <input type="radio" name="slide" id="login"   >
+            <input type="radio" name="slide" id="signup"  [checked]="signUpBtn"  >
+            <label for="login" class="slide login" (click)="switch('0%')">Login</label>
+            <label for="signup" class="slide signup" (click)="switch('-50%')">Signup</label>
+            <div class="slider-tab">
+            </div>
+        </div>
+        <div class="form-inner">
+            <form [formGroup]="authForm" (ngSubmit)="onSignIn()" class="login" #loginForm>
+                <div class="field">
+                    <input type="text" placeholder="Email Address" formControlName="email">
+                </div>
+                <div class="field">
+                    <input type="password" placeholder="Password" formControlName="password">
+                </div>
+                <div class="pass-link">
+                    <a href="#">Forgot password?</a>
+                </div>
+                <small class="text-danger">{{errorMsgLogin}}</small>
+                <div class="field btn">
+                    <div class="btn-layer">
+                    </div>
+                    <input type="submit" [disabled]="authForm.invalid" value="Login">
+                </div>
+                <div class="signup-link">
+                    Not a member? <a href="#" (click)="switch('-50%')">Signup now</a></div>
+            </form>
+            <form [formGroup]="registerForm" (ngSubmit)="onSignUp()"  class="signup">
+                <div class="field">
+                    <input type="text" placeholder="Email Address" formControlName="email">
+                </div>
+                <div class="field">
+                    <input type="password" placeholder="Password" formControlName="password">
+                </div>
+                <div class="field">
+                    <input type="password" placeholder="Confirm password" formControlName="cpassword">
+                </div>
+                <small class="text-danger">{{errorMsgRegister}}</small>
+                <div class="field btn">
+                    <div class="btn-layer">
+                    </div>
+                    <input type="submit" [disabled]="registerForm.invalid" value="Signup">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

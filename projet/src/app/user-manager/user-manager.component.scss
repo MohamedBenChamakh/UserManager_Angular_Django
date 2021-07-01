@@ -1,0 +1,19 @@
+.container-fluid{
+    width: 180vh;
+    overflow: hidden;
+    background: #fff6f3;
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 0px 15px 20px rgba(0,0,0,0.1);
+}
+
+@media (min-width:300px){
+    .container-fluid{
+      width:120vh;
+    }
+}
+@media (min-width: 1200px){
+    .container-fluid{
+      width:150vh;
+    }
+}
